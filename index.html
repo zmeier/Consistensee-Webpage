@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consistensee - Master Your Golf Swing</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #1a3e2e 0%, #2d5f43 50%, #73B77F 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(ellipse at center, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 0.3;
+            }
+
+            50% {
+                opacity: 0.6;
+            }
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 800px;
+            padding: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .logo-container {
+            margin-bottom: 2rem;
+            animation: fadeInDown 1s ease-out;
+        }
+
+        .logo {
+            width: 150px;
+            height: 150px;
+            filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.3));
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05) rotate(5deg);
+        }
+
+        .brand-name {
+            font-size: 4rem;
+            font-weight: 700;
+            margin: 1rem 0;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease-out 0.3s both;
+        }
+
+        .brand-prefix {
+            color: white;
+        }
+
+        .brand-suffix {
+            color: #73B77F;
+            text-shadow: 2px 2px 10px rgba(115, 183, 127, 0.3);
+        }
+
+        .tagline {
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            font-weight: 300;
+            animation: fadeInUp 1s ease-out 0.6s both;
+        }
+
+        .description {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeInUp 1s ease-out 0.9s both;
+        }
+
+        .cta-container {
+            animation: fadeInUp 1s ease-out 1.2s both;
+        }
+
+        .coming-soon {
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            padding: 1rem 2.5rem;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: default;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .coming-soon:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+        }
+
+        .features {
+            padding: 6rem 2rem;
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            color: #2d5f43;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #73B77F, #90B493);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            color: white;
+            margin: 0 auto 1rem;
+        }
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            color: #2d5f43;
+        }
+
+        .feature-description {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .footer {
+            background: #1a3e2e;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        .footer p {
+            opacity: 0.8;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .brand-name {
+                font-size: 2.5rem;
+            }
+
+            .tagline {
+                font-size: 1.2rem;
+            }
+
+            .description {
+                font-size: 1rem;
+            }
+
+            .logo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .features-title {
+                font-size: 2rem;
+            }
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <section class="hero">
+        <div class="hero-content">
+            <div class="logo-container">
+                <svg class="logo" width="867" height="866" viewBox="0 0 867 866" fill="none"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <ellipse cx="440.5" cy="402.5" rx="346.5" ry="222.5" fill="white" />
+                    <circle cx="440" cy="401" r="250" fill="#73B77F" />
+                    <path
+                        d="M852 401C852 433.83 829.654 466.339 809.552 496.671C789.45 527.002 759.986 554.562 722.843 577.777C685.699 600.991 641.604 619.406 593.073 631.97C544.543 644.534 492.529 651 440 651C387.471 651 335.457 644.534 286.927 631.97C238.396 619.406 194.301 600.991 157.157 577.777C120.014 554.562 90.5501 527.002 70.4482 496.671C50.3463 466.339 28 433.83 28 401H100C100 428.906 108.794 456.539 125.881 482.32C142.968 508.102 168.012 531.528 199.584 551.26C231.156 570.993 268.637 586.645 309.888 597.324C351.138 608.004 395.351 613.5 440 613.5C484.649 613.5 528.862 608.004 570.112 597.324C611.363 586.645 648.844 570.993 680.416 551.26C711.988 531.528 737.032 508.102 754.119 482.32C771.206 456.539 780 428.906 780 401L852 401Z"
+                        fill="#728370" />
+                    <path
+                        d="M852 401C852 368.17 829.654 335.661 809.552 305.329C789.45 274.998 759.986 247.438 722.843 224.223C685.699 201.009 641.604 182.594 593.073 170.03C544.543 157.466 492.529 151 440 151C387.471 151 335.457 157.466 286.927 170.03C238.396 182.594 194.301 201.009 157.157 224.223C120.014 247.438 90.5501 274.998 70.4482 305.329C50.3463 335.661 28 368.17 28 401H100C100 373.094 108.794 345.461 125.881 319.68C142.968 293.898 168.012 270.472 199.584 250.74C231.156 231.007 268.637 215.355 309.888 204.676C351.138 193.996 395.351 188.5 440 188.5C484.649 188.5 528.862 193.996 570.112 204.676C611.363 215.355 648.844 231.007 680.416 250.74C711.988 270.472 737.032 293.898 754.119 319.68C771.206 345.461 780 373.094 780 401L852 401Z"
+                        fill="#90B493" />
+                    <circle cx="440" cy="401" r="100" fill="#141414" />
+                    <path
+                        d="M428 405.623V405.395C428 404.148 429.132 403.207 430.363 403.406C438.337 404.697 443.671 404.659 451.648 403.394C452.876 403.199 454 404.139 454 405.382V405.567C454 405.987 453.867 406.396 453.623 406.738C450.069 411.725 447.935 415.67 446.142 424.513C446.116 424.642 446.102 424.776 446.102 424.909V482C446.102 482.189 446.076 482.377 446.023 482.558L442.86 493.446C442.303 495.364 439.587 495.37 439.021 493.455L435.802 482.562C435.748 482.378 435.72 482.187 435.72 481.995V424.877C435.72 424.766 435.711 424.653 435.692 424.543C434.309 416.458 432.177 412.697 428.321 406.71C428.112 406.386 428 406.008 428 405.623Z"
+                        fill="white" />
+                    <circle cx="440.5" cy="356.5" r="46.5" fill="white" />
+                </svg>
+            </div>
+
+            <h1 class="brand-name">
+                <span class="brand-prefix">Consisten</span><span class="brand-suffix">see</span>
+            </h1>
+
+            <p class="tagline">Master Your Own Swing, Every Time</p>
+
+            <p class="description">
+                Stop trying to change your swing and start perfecting it. Consistensee analyzes your golf swing to help
+                you maintain the consistency that wins games. Bridge the gap between driving range success and on-course
+                performance.
+            </p>
+
+            <div class="cta-container">
+                <div class="coming-soon">
+                    🔨 Under Construction
+                </div>
+            </div>
+        </div>
+
+        <div class="scroll-indicator">
+            ⌄
+        </div>
+    </section>
+
+    <section class="features">
+        <div class="features-container">
+            <h2 class="features-title">Why Consistensee?</h2>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        📈
+                    </div>
+                    <h3 class="feature-title">Swing Analysis</h3>
+                    <p class="feature-description">
+                        Advanced AI analyzes your unique swing mechanics to identify your natural rhythm and form
+                        patterns.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        🎯
+                    </div>
+                    <h3 class="feature-title">Consistency Focus</h3>
+                    <p class="feature-description">
+                        Rather than changing your swing, we help you repeat it perfectly every time for reliable
+                        performance.
+                    </p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        📱
+                    </div>
+                    <h3 class="feature-title">On-Course Ready</h3>
+                    <p class="feature-description">
+                        Take your practice consistency from the driving range directly to the golf course with
+                        confidence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 Consistensee. Coming Soon to iOS App Store.</p>
+    </footer>
+
+    <script>
+        // Smooth scrolling for any anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Add scroll effect to hero elements
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const hero = document.querySelector('.hero');
+            const heroContent = document.querySelector('.hero-content');
+
+            if (hero && heroContent) {
+                heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+                hero.style.opacity = 1 - scrolled / window.innerHeight;
+            }
+        });
+
+        // Animate features on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+
+</html>
